@@ -1,1 +1,95 @@
-# Testing.github-io
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <link rel="stylesheet" href="prog5s.css" />
+  <title>Something cool </title>
+</head>
+
+
+
+<body>
+  <h1><em>Math Questions! Answers all 3 correctly to see a surprise</em></h1>
+  <ol id="list">
+    <li>
+      What is 5 x 5?<div id="mark1"></div><input type="button" value="Click to Anwser" onclick="alert1()" />
+    </li>
+    <li>
+      What is 9 / 3?<div id="mark2"></div><input type="button" value="Click to Anwser" onclick="alert2()" />
+    </li>
+    <li>
+      What is 1st derivative of x<sup>2</sup>?<div id="mark3"></div>
+       <input type="button" value="Click to Anwser" onclick="alert3()" />
+    </li>
+  </ol>
+  <input id="surprise" type="button" value="Click to see the Surprise" onclick="surprise()" />
+  <br><br><br><br><br><input id="tips" type="button" value="Click here for tips" onclick="tips()" />
+   <!--Button for the tips-->
+  <div id="cheating"></div>
+
+  <script>
+    "use strict";
+    let c1 = false,c2 = false,c3 = false;
+
+
+
+    //checks for #1
+    function alert1() {
+      let anwser1;
+      anwser1 = Number(prompt("Put in your answer for question 1"));
+      if (anwser1 === 25) {
+        alert("you got it right!");
+        //adds a checkmark to the <div> container in the body
+        document.getElementById("mark1").innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Green-checkmark.svg/1957px-Green-checkmark.svg.png' alt='check mark' width='50px'>"
+        c1 = true;
+        return c1;
+      } else {
+        alert("you got it wrong, try again.");
+      }
+    }
+
+    //checks for #2
+    function alert2() {
+      let anwser2;
+      anwser2 = Number(prompt("Put in your answer for question 2"));
+      if (anwser2 === 3) {
+        alert("you got it right!");
+        document.getElementById("mark2").innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Green-checkmark.svg/1957px-Green-checkmark.svg.png' alt='check mark' width='50px'>"
+        c2 = true;
+        return c2;
+      } else {
+        alert("you got it wrong, try again.");
+      }
+    }
+
+    //checks for #3
+    function alert3() {
+      let anwser3;
+      anwser3 = prompt("Put in your answer for question 3");
+      if (anwser3 === "2x") {
+        alert("you got it right!");
+        document.getElementById("mark3").innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Green-checkmark.svg/1957px-Green-checkmark.svg.png' alt='check mark' width='50px'>"
+        c3 = true;
+        return c3;
+      } else {
+        alert("you got it wrong, try again.");
+      }
+    }
+     
+    //checks if all 3 questions are anwsered correctly 
+    function surprise(){
+     if (c1===true && c2===true && c3===true){
+      document.writeln( "<video width='1800' height='800' controls autoplay><source src='rick.mp4' type='video/mp4'><source src='rick.mp4' type='video/ogg'></video>")
+     } else {alert("You did not get all 3 correct.")}
+    }
+
+
+    //function called when the tip button is pressed
+    function tips(){
+      document.getElementById("cheating").innerHTML = " <ol><li>5x5=25</li><li>9/3=3</li><li>1st derivative of x<sup>2</sup>=2x</li></ol>"
+    }
+  </script>
+</body>
+
+</html>
